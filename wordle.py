@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import random
+import sys
 
 # для подсветки текста
 from colorama import Fore, Back, Style
@@ -15,7 +16,15 @@ i = random.randrange(len(words))
 word = words[i]
 
 # число попыток
-count = 5
+count = int(sys.argv[1])
+tries = None
+if count == 1:
+     tries = "попытка"
+elif count >= 2 and count < 5:
+     tries = "попытки"        
+else:
+     tries = "попыток"
+print("У вас", count, tries + ".")
 
 # игровое поле
 field = ["*****"] * count
